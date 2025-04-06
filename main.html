@@ -9,8 +9,28 @@
 <body>	
 	<script>
 		function secondHighest(arr) {
-			//Write your code here
+			if (arr.length < 2) {
+				return -Infinity;
+			}
 			
+			let first = -Infinity;
+			let second = -Infinity;
+			
+			for (let num of arr) {
+				num = Number(num); // Ensure conversion from string to number if input is taken via promp
+				if (num > first) {
+					second = first;
+					first = num;
+				} else if (num < first && num > second) {
+					second = num;
+				}
+			}
+			
+			if (second === -Infinity) {
+				return -Infinity;
+			} else {
+				return second;
+			}
 		}
 
 		function Main() {
